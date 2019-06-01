@@ -582,9 +582,10 @@
 								}
 							}).done(function( dados ){
 									dt_g = dados;
-
+									alert(dt_g);											
 								}).fail(function(jqXHR, textStatus, msg){
 											console.log("Erro de conexao");
+								alert('errror');
 								});
 						})
 
