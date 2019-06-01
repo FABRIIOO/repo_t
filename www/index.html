@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+					<meta charset="UTF-8" />
+            	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+            <script src="js/jquery.js"></script>
+            <style>
+                h1, h2, h3, h4, h5, p, a, ul, ol{
+                    margin: 0;
+                    padding: 0;
+                }
+                h1{
+                    text-align: center;
+                    color: #D1B57C;
+                    font-variant: small-caps;
+                    font-size: 28px;
+                    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+                    animation: fadeInDown .4s ease-in-out;
+                }
+                h2{
+                  padding: 15px 10px;
+                  text-align: center;
+                  color: rgb(117, 116, 112);
+                  font-size:26px;
+                  font-variant: small-caps;
+                  background: rgba(255,255,255,10); /*rgba(146, 147, 147, .8)*/
+                  animation: fadeInOnly .5s ease-in-out;
+                  -webkit-animation: fadeInOnly .8s linear ease-in-out;
+                  font-family: serif;
+                }
+                h3{
+                  font-size: 25px;
+                  text-align: center;
+                  padding: 15px 10px;
+                  color: #D1B57C;/*rgba(75,75,75,.8)*/
+                  background: #FFF;
+                  font-weight: 600;
+                  font-variant: small-caps;
+                  border-bottom: 1px solid rgba(146,147,147,.2);
+                }
+                h4{
+                  font-variant: small-caps;
+                  font-weight: 200;
+                  color: #D1B57C;
+                }
+                h5{
+                  font-size: 18px;
+                  font-weight: 200;
+                  color: #D1B57C;
+                }
+                h6{
+                  font-variant: small-caps;
+                  font-size: 16px;
+                  color: #777;
+                }
+                a{
+                  cursor: pointer;
+                }
+		            .card{
+			            position: relative;
+			            width: 100%;
+			            height: auto;
+			            margin: 20px auto;
+			            background: white;
+                }
+		            .img-container img{
+			            height: 150px;
+			            width: 150px;
+			            left: 100px;
+			            top:50px;
+			            position: relative;
+			            overflow: hidden;
+			            border: 1px solid #DDD;
+			            padding: 5px;
+			            background: #FFF;
+			            border-radius: 50%;
+			            box-shadow: 0 1px 3px 0 rgba(75,75,75,0.5);
+			            animation: fadeInOnly .8s ease-in-out;
+		              }
+		            @keyframes fadeInOnly{
+			            0%{
+				            opacity: 0;
+			              }
+			            100%{
+				              opacity: 1;
+			                }
+		            }
+		            @-webkit-keyframes fadeInOnly{
+			            0%{
+				            opacity: 0;
+			              }
+			            100%{
+				              opacity: 1;
+			                }
+		            }
+		            @-moz-keyframes fadeInOnly{
+			            0%{
+				            opacity: 0;
+			              }
+			            100%{
+				              opacity: 1;
+			                }
+		            }
+		            @-o-keyframes fadeInOnly{
+			            0%{
+				            opacity: 0;
+			              }
+			            100%{
+				              opacity: 1;
+			                }
+		            }
+		            .img-rounded img{
+		               position: relative;
+		               border-radius: 50%;
+			             -moz-border-radius:50%;
+			             -webkit-border-radius:50%;
+			             border: 1px solid rgba(203,202,202,.2);
+			             top:20px;
+			             left: 0;
+			             width: 100px;
+			             height: 100px;
+			             z-index: 10;
+			             margin-left: 120px;
+			             animation: fadeIn .8s ease-in-out;
+			             margin-bottom: 20px;
+			             background: rgba(0,0,0,.10);
+		            }
+		            .description{
+			             padding: 15px;
+			             position: absolute;
+			             line-height: 1.6em;
+			             top:260px;
+			             /*background: rgba(255,255,255,.9);
+			             top:380px;*/
+			             width: 100%;
+		            }
+		            .description p{
+			             animation: fadeInDown .6s ease-in-out;
+			             font-size: 15px;
+			             color: #888;
+			             text-align: center;
+			             text-shadow: 0 1px 1px rgba(0,0,0,.020);
+			          }
+			          @-webkit-keyframes fadeInDown {
+			             from {
+			                  opacity: 0;
+                		    -webkit-transform: translate3d(0, -100%, 0);
+                		    transform: translate3d(0, -100%, 0);
+            		   }
+		                 to {
+		                     opacity: 1;
+		                     -webkit-transform: none;
+		                     transform: none;
+		                  }
+		                  }
+    @keyframes fadeInDown {
+		  from {
+		    opacity: 0;
+		    -webkit-transform: translate3d(0, -100%, 0);
+		    -o-transform: translate3d(0, -100%, 0);
+		    transform: translate3d(0, -100%, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: none;
+		    transform: none;
+		  }
+		}
+		.list li{
+			list-style: none;
+			background: rgba(255,255,255,10);
+			display: block;
+			border-bottom: 1px solid rgba(75,75,75,.080);
+			font-size: 17px;
+		}
+		.list li {
+            font-family: sans-serif;
+			display: block;
+			text-decoration: none;
+			padding: 15px 10px;
+			color: #888;
+			font-variant: small-caps;
+			font-weight: 500;
+		}
+.list li i{
+  color:#D1B57C;
+  padding-right:5px;
+}
+		.list li:first-child{
+			animation: slideInLeft 0.2s ease-in-out;
+		}
+		.list li:nth-child(2){
+			animation: slideInLeft 0.4s ease-in-out;
+		}
+		.list li:nth-child(3){
+			animation: slideInLeft 0.6s ease-in-out;
+		}
+		.list li:nth-child(4){
+			animation: slideInLeft 0.8s ease-in-out;
+		}
+    .list li:nth-child(5){
+			animation: slideInLeft 1s ease-in-out;
+		}
+    .list li:nth-child(6){
+			animation: slideInLeft 1.2s ease-in-out;
+		}
+    .list li:nth-child(7){
+			animation: slideInLeft 1.4s ease-in-out;
+		}
+    .list li:nth-child(8){
+			animation: slideInLeft 1.6s ease-in-out;
+		}
+    .list li:nth-child(9){
+			animation: slideInLeft 1.8s ease-in-out;
+		}
+    .list li:nth-child(10){
+			animation: slideInLeft 2s ease-in-out;
+		}
+    .list li:nth-child(11){
+			animation: slideInLeft 2.2s ease-in-out;
+		}
+    .list li:nth-child(12){
+			animation: slideInLeft 2.4s ease-in-out;
+		}
+    .list li:nth-child(13){
+			animation: slideInLeft 2.6s ease-in-out;
+		}
+    .list li:nth-child(14){
+			animation: slideInLeft 2.8s ease-in-out;
+		}
+    .list li:nth-child(15){
+			animation: slideInLeft 3.0s ease-in-out;
+		}
+    .list li:nth-child(16){
+			animation: slideInLeft 3.2s ease-in-out;
+		}
+    .list li:nth-child(17){
+			animation: slideInLeft 3.4s ease-in-out;
+		}
+		.list li:last-child{
+			animation: slideInLeft 3.6s ease-in-out;
+			border: 0;
+		}
+		/*.list li:nth-child(2n+1){
+			background: #FAFAFA;
+		}*/
+		.list li:hover{
+            background-color: rgb(251, 247, 247);
+			color: grey;
+        }
+
+        .list li span i{
+			display: block;
+		}
+		@keyframes slideInLeft {
+		  from {
+		    -webkit-transform: translate3d(-25%, 0, 0);
+		    transform: translate3d(-25%, 0, 0);
+		    visibility: visible;
+		  }
+
+		  to {
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+		}
+
+		@-webkit-keyframes slideInLeft{
+		   from {
+		    -webkit-transform: translate3d(-25%, 0, 0);
+		    transform: translate3d(-25%, 0, 0);
+		    visibility: visible;
+		  }
+
+		  to {
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+		}
+		@-moz-keyframes slideInLeft{
+		   from {
+		    -webkit-transform: translate3d(-25%, 0, 0);
+		    transform: translate3d(-25%, 0, 0);
+		    visibility: visible;
+		  }
+
+		  to {
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+		}
+		@-o-keyframes slideInLeft{
+		   from {
+		    -webkit-transform: translate3d(-25%, 0, 0);
+		    transform: translate3d(-25%, 0, 0);
+		    visibility: visible;
+		  }
+
+		  to {
+		    -webkit-transform: translate3d(0, 0, 0);
+		    transform: translate3d(0, 0, 0);
+		  }
+		}
+		.list-content{
+			width: 100%;
+			background: #F5F5F5;
+			position: absolute;
+			top:0;
+			bottom: 0;
+			height: auto;
+			z-index: 10;
+			display: none;
+			animation: fadeIn .5s ease-in-out;
+			overflow: scroll;
+            overflow-x:hidden;
+		}
+		.list-border li{
+			height: 100%;
+			list-style: none;
+			padding: 10px;
+			padding-bottom: 10px;
+			color: #888;
+			margin: 10px 15px 10px 15px;
+			background: #FFF;
+			border: 1px solid rgba(203,202,202,.4);
+			border-radius: 4px;
+			animation: fadeInUp .8s ease-in-out;
+		}
+		@keyframes fadeIn{
+			from{
+				opacity: 0;
+				transform: rotateY(180deg);
+				transform-style: preserve-3d;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes fadeIn{
+			from{
+				opacity: 0;
+				transform: rotateY(180deg);
+				transform-style: preserve-3d;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+		@-moz-keyframes fadeIn{
+			from{
+				opacity: 0;
+				transform: rotateY(180deg);
+				transform-style: preserve-3d;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+		@-o-keyframes fadeIn{
+			from{
+				opacity: 0;
+				transform: rotateY(180deg);
+				transform-style: preserve-3d;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+		@keyframes fadeInUp {
+		  from {
+		    opacity: 0;
+		    -webkit-transform: translate3d(0, 50%, 0);
+		    transform: translate3d(0, 50%, 0);
+		  }
+
+		  to {
+		    -webkit-transform: none;
+		    transform: none;
+		  }
+		}
+		@-webkit-keyframes fadeInUp{
+		   from {
+		    opacity: 0;
+		    -webkit-transform: translate3d(0, 50%, 0);
+		    transform: translate3d(0, 50%, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: none;
+		    transform: none;
+		  }
+		}
+		@-moz-keyframes fadeInUp{
+			from {
+		    opacity: 0;
+		    -webkit-transform: translate3d(0, 50%, 0);
+		    transform: translate3d(0, 50%, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: none;
+		    transform: none;
+		  }
+		}
+		@-o-keyframes fadeInUp{
+			from {
+		    opacity: 0;
+		    -webkit-transform: translate3d(0, 50%, 0);
+		    transform: translate3d(0, 50%, 0);
+		  }
+
+		  to {
+		    opacity: 1;
+		    -webkit-transform: none;
+		    transform: none;
+		  }
+		}
+		.profile ul{
+			margin-top: 20px;
+		}
+		.profile li strong{
+			color: #56b880;
+			font-weight: 200;
+		}
+		.profile p{
+			margin: 10px;
+			padding: 10px;
+			color: #777;
+		}
+		.movies p{
+			padding: 10px;
+			margin: 10px;
+			color: #888;
+		}
+		.movies li a{
+			text-decoration: none;
+		}
+		.movies li span{
+			color: rgba(75,75,75,.8);
+		}
+		/* ::-webkit-scrollbar{
+			width: 8px;
+		}
+		::-webkit-scrollbar-track{
+			background: #EEE;
+		}
+		::-webkit-scrollbar-thumb{
+			/* background: ; */
+		/* } */
+		::-webkit-scrollbar-button{
+			background: #CCC;
+		}
+		::-webkit-scrollbar-corner{
+			background: #EEE;
+		} */
+		.trivia p{
+			padding: 10px;
+			margin: 10px;
+		}
+		.awards p{
+			padding: 10px;
+			margin: 10px;
+		}
+		.btn-close, .btn-close_item{
+			font-size: 20px;
+			position: absolute;
+			top:10px;
+			left:5px;
+			cursor: pointer;
+			text-align: center;
+			/*background: #92C7C7;
+			border-radius: 50%;*/
+			-moz-border-radius:50%;
+			-webkit-border-radius:50%;
+			line-height: 35px;
+			width: 35px;
+			height: 35px;
+			-webkit-transition: all 0.3s;
+		    -moz-transition: all 0.3s;
+		    -ms-transition: all 0.3s;
+		    -o-transition: all 0.3s;
+		    transition: all 0.3s;
+		}
+		a.btn-close i{
+			color: rgba(0, 0, 0, .4);
+		}
+		.btn-close:hover{
+			animation: fa-spin-fast .5s ease-in-out;
+			-moz-animation:fa-spin-fast .5s ease-in-out;
+			-webkit-animation: fa-spin-fast .5s ease-in-out;
+		}
+		@-webkit-keyframes fa-spin-fast {
+		    0% {
+		        -webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+		    }
+		    100% {
+		        -webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
+		    }
+		}
+		@keyframes fa-spin-fast{
+			 0% {
+		        -webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+		    }
+		    100% {
+		        -webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
+		    }
+		}
+		@-moz-keyframes fa-spin-fast{
+			 0% {
+		        -webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+		    }
+		    100% {
+		        -webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
+		    }
+		}
+		@-o-keyframes fa-spin-fast{
+			 0% {
+		        -webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
+		    }
+		    100% {
+		        -webkit-transform: rotate(359deg);
+		        transform: rotate(359deg);
+		    }
+		}
+		.fa-lg{
+			font-size: 20px;
+			color: #878;
+		}
+		.fa-times{
+			color: #888;
+		}
+		.gallery li{
+			margin: 10px 10px 10px 15px;
+		}
+		.quotes p{
+			color: rgba(203,202,202,.8);
+			padding: 10px;
+			margin: 10px 10px 0 10px;
+			animation: fadeInUp .8s ease-in-out;
+		}
+
+        /* style app */
+		input {
+            width: 90%;
+            border-radius: 8px;
+            background-color: rgb(238, 234, 234);
+            border: 2px solid rgb(238, 234, 234);
+            height: 20px;
+            color: grey;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            color: rgb(26, 25, 25);
+            padding: 2px;
+        }
+
+
+                </style>
+        </head>
+        <body>
+            <script>
+
+						var dt_g;
+						$( document ).ready ( function () {
+							$.ajax({
+								url : "http://www.usc.edu.br/api/v1/guia_turistico",
+								type : 'get',
+								beforeSend : function(){
+									console.log("enviando requisição...");
+								}
+							}).done(function( dados ){
+									dt_g = dados;
+
+								}).fail(function(jqXHR, textStatus, msg){
+											console.log("Erro de conexao");
+								});
+						})
+
+
+
+						//funcao para abri o card 
+            function OpenCard ( id ) {
+							$('#open_itipo').slideToggle();
+							$('.btn-close').click(function(){
+            		$('#open_itipo').hide(300);
+							});
+
+							var dt_monta = "";
+							for (var i=0; i < dt_g.length; i++) {
+								if ( id == dt_g[i].ITIPO) 
+								{
+									dt_monta += '<li onclick="Open_item('+dt_g[i].ID+')">'+dt_g[i].NOME+'</li>';
+								}
+							}
+							$('#monta_itipo').html( dt_monta );
+						}
+
+						function Open_item ( id ) 
+						{
+							var nome,mapa;
+							for (var i=0; i < dt_g.length; i++) {
+								if ( id == dt_g[i].ID) 
+								{
+									nome = dt_g[i].NOME;
+									mapa = dt_g[i].GOOGLE_MAPS;
+								}
+							}
+							$('#local_mapa').html( '<iframe src="'+mapa+'"  width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>' );
+							$('#nome_item').html( nome );
+							$('#open_item').slideToggle();
+							$('.btn-close_item').click(function(){
+            		$('#open_item').hide(300);
+							});
+
+
+						}
+
+
+</script>
+            					<div class="card">
+                        <div class="front">
+                            <div class="title">
+                                <h2>Guia turistico</h2>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Fazer pesquisa">
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li onclick="OpenCard('15')">Aeroporto</li>
+                                    <li>Bar</li>
+                                    <li>Borracharia</li>
+                                    <li>Escola</li>
+                                    <li>Hospital</li>
+                                    <li>Igreja</li>
+                                    <li>Lanchonete</li>
+                                    <li>Loja de roupa</li>
+                                    <li>Lotérica</li>
+                                    <li>Mercado</li>
+                                    <li>Padaria</li>
+                                    <li>Posto de combustível</li>
+                                    <li>Praça</li>
+                                    <li>Rede FastFood</li>
+                                    <li>Restaurante</li>
+                                    <li>Rodaviaria</li>
+                                    <li>Shopping</li>
+                                    <li>Universidade</li>
+                                </ul>
+                            </div>
+											</div>
+
+											
+
+												<!-- mosta page com itipo  -->
+												<div class="list-content" id="open_itipo">
+														<h3 id="title_card">Aeroporto</h3>
+														<div class="img-rounded">
+															  <center>
+																	<img src="https://cloud.githubusercontent.com/assets/8037580/18605096/3c7a40e8-7cbb-11e6-8962-55bc7e070186.jpg" alt="image">
+																</center>
+														</div>
+														<div class="list">
+															<ul id="monta_itipo">
+													
+															</ul>
+														</div>
+														<a class="btn-close"><i class="fa fa-times"></i>X</a>
+												</div>
+
+
+
+
+
+
+                        <div class="list-content" id="open_item">
+														<h3 id="title_card">Aeroporto</h3>
+												
+														<ul class="list-border">
+															  <li id="local_mapa"></li>
+																<li id="nome_item"></li>
+																<li>
+																		<strong>Birthdate:</strong> September 15, 1977
+																</li>
+																
+														</ul>
+														<a class="btn-close_item"><i class="fa fa-times"></i>X</a>
+												</div>
+												
+												
+											
+												<script type="text/javascript" src="cordova.js"></script>
+        </body>
+    </html>
